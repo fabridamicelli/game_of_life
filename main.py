@@ -6,7 +6,6 @@ state and its number of live neighbors. If a cell is alive, it stays alive
 if it has 2 or 3 neighbors, and dies otherwise. If a cell is dead, it stays
 dead unless it has exactly 3 neighbors.
 '''
-import time
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
