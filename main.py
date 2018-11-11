@@ -1,7 +1,7 @@
 '''
 John Conway's Game of Life
 --------------------------
-In Game of Life (GoL), the next state of each cell depends on its current 
+In Game of Life the next state of each cell depends on its current 
 state and its number of live neighbors. If a cell is alive, it stays alive
 if it has 2 or 3 neighbors, and dies otherwise. If a cell is dead, it stays
 dead unless it has exactly 3 neighbors.
