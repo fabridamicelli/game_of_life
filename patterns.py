@@ -1,3 +1,4 @@
+import numpy as np
 
 # A couple of famous initial conditions that produce interesting patterns
 # Glider gun 
