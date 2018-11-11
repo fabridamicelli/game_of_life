@@ -14,6 +14,7 @@ from patterns import bouncer, glider_gun
 def run_and_animate(grid=None, n_steps=1000):
     '''
     Run game of life, create animation and save as mp4 file.
+    Animation is save in the working directory.    
 
     Parameters
     ----------
@@ -29,8 +30,6 @@ def run_and_animate(grid=None, n_steps=1000):
         sudo add-apt-repository ppa:mc3man/trusty-media
         sudo apt-get update
         sudo apt-get install ffmpeg
-
-    Animation is save in the working directory.    
     '''
     # Initialize figure for animation
     fig = plt.figure()
