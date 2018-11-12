@@ -4,9 +4,11 @@ For more info and interesting examples: <http://en.wikipedia.org/wiki/Conway%27s
 
 ## Requirements
 For animation to work you might have to install ffmpeg. On Ubuntu and Linux Mint, the following should work.
-  $ sudo add-apt-repository ppa:mc3man/trusty-media
-  $ sudo apt-get update
-  $ sudo apt-get install ffmpeg
+```
+sudo add-apt-repository ppa:mc3man/trusty-media
+sudo apt-get update
+sudo apt-get install ffmpeg
+```
 
 ## Example: "Bouncer"
 ![Alt Text](https://github.com/fabridamicelli/game_of_life/blob/master/examples/bouncer.gif)
