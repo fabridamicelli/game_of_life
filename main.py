@@ -1,11 +1,3 @@
-'''
-John Conway's Game of Life
---------------------------
-In Game of Life the next state of each cell depends on its current 
-state and its number of live neighbors. If a cell is alive, it stays alive
-if it has 2 or 3 neighbors, and dies otherwise. If a cell is dead, it stays
-dead unless it has exactly 3 neighbors.
-'''
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -22,14 +14,6 @@ def run_and_animate(grid=None, n_steps=1000):
         Initial grid on which the game runs.
     n_steps: int
         Number of iterations of the game.
-
-    Notes
-    -----
-    For animation to work you might have to install ffmpeg.
-    On Ubuntu and Linux Mint, the following should work.
-        sudo add-apt-repository ppa:mc3man/trusty-media
-        sudo apt-get update
-        sudo apt-get install ffmpeg
     '''
     # Initialize figure for animation
     fig = plt.figure()
@@ -64,4 +48,4 @@ def run_and_animate(grid=None, n_steps=1000):
 
 if __name__ == '__main__':
     # grid = np.random.randint(2, size=(50, 50))
-    run_and_animate(grid=bouncer, n_steps=100)
+    run_and_animate(grid=bouncer, n_steps=150)
