@@ -140,17 +140,3 @@ def animate(time_series: List, filename: str=None) -> None:
         ani.save('gameoflife.mp4')
 
 
-#if __name__ == '__main__':
-    # ts = run_gam_np(grid=bouncer, n_steps=50)    
-    # animate(ts)
-    
-
-
-# TODO: map grid dict <-> nparray -> TEST
-#       assert results same
-#       timeit both versions 
-#       pure py version should also take a ndarray as input           
-#       commit: pure python version, type hint, split run and animate
-#       avoid repetition loop over neighbors in cell update
-#       update readme
-#       commit: add pure python version, refactor
