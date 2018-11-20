@@ -1,4 +1,5 @@
 import random
+import itertools
 from typing import List, Tuple, Dict
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,7 +24,7 @@ def run_game_np(grid: np.ndarray, n_steps: int=100) -> List:
        Time series of grids.        
     '''    
     n_rows, n_cols = grid.shape
-    time_series = []    
+    time_series = [grid]    
     for _ in range(n_steps): 
         new_grid = np.zeros_like(grid)
         # Loop over all cells
@@ -76,17 +77,15 @@ def array_to_dict(grid_array: np.ndarray) -> Dict:
                 for j in range(n_cols)}
     return grid_dict            
 
-def run_game_py(grid: Dict, n_steps: int=150) -> List:
+def run_game_py(grid: np.ndarray, n_steps: int=150) -> List:
     '''
     Run game of life.
     Pure python implementation (no numpy).
 
     Parameters
     ----------
-    grid: dict
-        Initial grid on which the game runs. 
-        Dict keys -> id of the cell (coordinates).
-        Dict values -> state (0/dead, 1/alive)    
+    grid: 2-D ndarray
+        Initial grid on which the game runs.        
     n_steps: int
         Number of iterations of the game.
 
@@ -94,23 +93,27 @@ def run_game_py(grid: Dict, n_steps: int=150) -> List:
     -------
     time_series: list of dicts
        Time series of grids.    
-    '''    
-    rows, cols = zip(*grid.keys())        
-    n_rows, n_cols = len(set(rows)), len(set(cols))
-    time_series = [] 
+    '''            
+    n_rows, n_cols = grid.shape            
+    time_series = [grid] 
+
+    # Transform array into dict (id(coordinate):state(0/dead, 1/alive))
+    grid = array_to_dict(grid)
     for _ in range(n_steps):                 
         new_grid = {(i, j): 0 for i in range(n_rows) for j in range(n_cols)}                                    
                             
-        for cell in zip(range(1, n_rows - 1), range(1, n_cols - 1)):                
-            n_neighbors_alive = sum([grid[neigh] 
-                                    for neigh in neighbors(cell)])                               
+        for cell in itertools.product(range(1, n_rows - 1), range(1, n_cols - 1)):
+            print(cell)     
+            n_neighbors_alive = sum((grid[neigh] 
+                                    for neigh in neighbors(cell)))        
+                                    
             if grid[cell] and n_neighbors_alive in (2, 3):
                 new_grid[cell] = 1
             if not grid[cell] and n_neighbors_alive == 3:
                 new_grid[cell] = 1    
     
         grid = new_grid
-        time_series.append(grid)
+        time_series.append(dict_to_array(grid))
         
     return time_series
 
