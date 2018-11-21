@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from patterns import bouncer, glider_gun
 
-def run_game_np(grid: np.ndarray, n_steps: int=100) -> List:            
+def run_game_np(grid: np.ndarray, n_steps: int=150) -> List:            
     '''
     Run game of life.
     Implementation using numpy.
@@ -104,7 +104,7 @@ def run_game_py(grid: np.ndarray, n_steps: int=150) -> List:
     grid = array_to_dict(grid)
     for _ in range(n_steps):                         
         new_grid = {(i, j): 0 for i in range(n_rows) for j in range(n_cols)}                                                                                
-        
+
         for cell, neighs in cells_n_neighs.items():                        
             n_neighbors_alive = sum([grid[neigh] for neigh in neighs])                        
 
@@ -144,10 +144,7 @@ def animate(time_series: List, filename: str=None) -> None:
         ani.save('gameoflife.mp4')
 
 
-#if __name__ == '__main__':
-    # ts = run_gam_np(grid=bouncer, n_steps=50)    
-    # animate(ts)
-    
-
-# TODO  timeit both versions 
-#       avoid repetition loop over neighbors in cell update
+if __name__ == '__main__':
+    ts = run_game_np(grid=bouncer, n_steps=50)    
+#    ts = run_game_py(grid=bouncer, n_steps=50)    
+    animate(ts)
