@@ -1,8 +1,7 @@
-import sys; sys.path.append('/home/icns-fd/Dropbox/code/game_of_life')
 import random
 import numpy as np
 
-from main import run_game_np, run_game_py, array_to_dict, dict_to_array, animate
+from code.main import run_game_np, run_game_py, array_to_dict, dict_to_array, animate
 from patterns import bouncer, glider_gun
 
 def make_rand_grid_dict():
@@ -33,5 +32,5 @@ def test_np_vs_py():
     assert len(run_np) == len(run_py)
     assert sum([(a == b).all()
                for a, b in zip(run_np, run_py)]) == len(run_np)
-
+               
     

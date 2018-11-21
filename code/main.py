@@ -1,4 +1,3 @@
-import random
 import itertools
 from typing import List, Tuple, Dict
 import numpy as np
@@ -143,3 +142,12 @@ def animate(time_series: List, filename: str=None) -> None:
         ani.save('gameoflife.mp4')
 
 
+#if __name__ == '__main__':
+    # ts = run_gam_np(grid=bouncer, n_steps=50)    
+    # animate(ts)
+    
+
+# TODO  assert results same
+#       timeit both versions 
+#       pure py version should also take a ndarray as input           
+#       avoid repetition loop over neighbors in cell update
