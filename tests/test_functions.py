@@ -26,7 +26,7 @@ def test_array_to_dict():
 
 def test_np_vs_py():
     grid = make_rand_grid_np()
-    steps = 1
+    steps = 500
     run_np = run_game_np(grid.copy(), n_steps=steps)
     run_py = run_game_py(grid.copy(), n_steps=steps)    
     assert len(run_np) == len(run_py)

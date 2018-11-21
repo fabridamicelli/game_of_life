@@ -9,7 +9,7 @@ Check [this](http://www.conwaylife.com/wiki/Main_Page) for catalogues of pattern
 ![Alt Text](https://github.com/fabridamicelli/game_of_life/blob/master/examples/bouncer.gif)
 
 ## Requirements
-### Animation:
+### Animation
 You might have to install ffmpeg. On Ubuntu and Linux Mint:
 ```
 sudo add-apt-repository ppa:mc3man/trusty-media

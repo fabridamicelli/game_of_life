@@ -95,17 +95,19 @@ def run_game_py(grid: np.ndarray, n_steps: int=150) -> List:
     '''            
     n_rows, n_cols = grid.shape            
     time_series = [grid] 
-
+    # Get all neighbourhoods to later loop over them
+    cells_n_neighs = {cell: neighbors(cell)           
+                      for cell in itertools.product(range(1, n_rows - 1), 
+                                                    range(1, n_cols - 1))}
+                      
     # Transform array into dict (id(coordinate):state(0/dead, 1/alive))
     grid = array_to_dict(grid)
-    for _ in range(n_steps):                 
-        new_grid = {(i, j): 0 for i in range(n_rows) for j in range(n_cols)}                                    
-                            
-        for cell in itertools.product(range(1, n_rows - 1), range(1, n_cols - 1)):
-            print(cell)     
-            n_neighbors_alive = sum((grid[neigh] 
-                                    for neigh in neighbors(cell)))        
-                                    
+    for _ in range(n_steps):                         
+        new_grid = {(i, j): 0 for i in range(n_rows) for j in range(n_cols)}                                                                                
+        
+        for cell, neighs in cells_n_neighs.items():                        
+            n_neighbors_alive = sum([grid[neigh] for neigh in neighs])                        
+
             if grid[cell] and n_neighbors_alive in (2, 3):
                 new_grid[cell] = 1
             if not grid[cell] and n_neighbors_alive == 3:
@@ -147,7 +149,5 @@ def animate(time_series: List, filename: str=None) -> None:
     # animate(ts)
     
 
-# TODO  assert results same
-#       timeit both versions 
-#       pure py version should also take a ndarray as input           
+# TODO  timeit both versions 
 #       avoid repetition loop over neighbors in cell update
