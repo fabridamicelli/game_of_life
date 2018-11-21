@@ -2,6 +2,7 @@
 In [Game of Life](<http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life>) the next state of each cell depends on its current state and its number of live neighbors:
  - If a cell is alive: it stays alive if it has 2 or 3 neighbors alive, and dies otherwise. 
  - If a cell is dead: it stays dead unless it has exactly 3 neighbors alive. 
+
 Check [this](http://www.conwaylife.com/wiki/Main_Page) for catalogues of patterns and more.
 
 ## Example: "Bouncer"
